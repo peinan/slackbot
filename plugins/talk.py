@@ -8,7 +8,7 @@ import requests, json
 
 def docomo_talk(msg):
   url = 'https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue'
-  apikey = '4e3768416a4d782f3330556e4269634c3145427a46726b735a75416767546e48647058754150306b6e4244'
+  apikey = open('docomo_dialog.token').readline().strip()
   headers = {'content-type': 'application/json'}
   payload = {'APIKEY': apikey}
   data = {
