@@ -8,7 +8,7 @@ import requests
 
 def get_rainfall():
   url = 'https://map.yahooapis.jp/weather/V1/place'
-  appid = open('yolo_weather.token').readline().strip()
+  appid = open('plugins/yolo_weather.token').readline().strip()
   place = '139.732293,35.663613'
   output = 'json'
   payload = {
