@@ -5,7 +5,7 @@
 # Created at: 2016-12-08
 
 # fucode
-API_TOKEN = open('fucode.token').read()
+API_TOKEN = open('fucode.token').readline().strip()
 
 default_reply = 'スミマセン、ワカリマセン'
 
