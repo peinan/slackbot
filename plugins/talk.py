@@ -28,3 +28,17 @@ def docomo_talk(msg):
   reply = r.json()['utt']
 
   return reply
+
+
+def docomo_qa(msg):
+  url = 'https://api.apigw.smt.docomo.ne.jp/knowledgeQA/v1/ask'
+  apikey = open('plugins/docomo_dialog.token').readline().strip()
+  headers = {'content-type': 'application/json'}
+  payload = {
+      'APIKEY': apikey,
+      'q': msg
+  }
+  r = requests.get(url, headers=headers, params=payload)
+  reply = r.json()['message']['textForDisplay']
+
+  return reply

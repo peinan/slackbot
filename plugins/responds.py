@@ -4,9 +4,10 @@
 # Author: Peinan ZHANG
 # Created at: 2017-01-27
 
+import re
 from slackbot.bot import respond_to, listen_to, default_reply
 from plugins.weather import get_rainfall
-from plugins.talk import docomo_talk
+from plugins.talk import docomo_talk, docomo_qa
 
 @respond_to('疲れた')
 @respond_to('つかれた')
@@ -52,6 +53,11 @@ def reaction2(message):
 def debug(message):
   t = dir(str(message))
   message.send(t)
+
+@respond_to('.*は[\?？]$', re.IGNORECASE)
+def qa(message):
+  msg = docomo_qa(message.body['text'])
+  message.reply(msg)
 
 @default_reply
 def my_default_hanlder(message):
